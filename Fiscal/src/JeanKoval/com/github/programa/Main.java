@@ -27,7 +27,7 @@ public class Main {
 		
 		NotaFiscal nota = new NotaFiscal("123456789", new Date(), "1234567891", emissor, cliente, listaProdutos);
 		
-		
+		System.out.println(nota);
 	}
 
 }

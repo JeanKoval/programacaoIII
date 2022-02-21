@@ -25,4 +25,12 @@ public class Emissor {
 	public void setCNPJ(String cnpj) {
 		this.cnpj = cnpj;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("\nNome: "+this.nome);
+		sb.append("\nCNPJ: "+this.cnpj);
+		return sb.toString();
+	}
 }

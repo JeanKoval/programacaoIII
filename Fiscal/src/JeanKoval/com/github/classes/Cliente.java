@@ -25,4 +25,12 @@ public class Cliente {
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("\nNome: "+this.nome);
+		sb.append("\nDocumento: "+this.documento);
+		return sb.toString();
+	}
 }

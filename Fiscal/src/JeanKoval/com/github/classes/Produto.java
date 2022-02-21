@@ -47,4 +47,14 @@ public class Produto {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Codigo: "+this.codigo);
+		sb.append("\nDescrição: "+this.descricao);
+		sb.append("\nQuantidade: "+this.quantidade);
+		sb.append("\nValor: "+this.valor);
+		return sb.toString();
+	}
 }

@@ -6,6 +6,8 @@ import java.util.List;
 
 public class NotaFiscal {
 	
+	public static StringBuilder sb = new StringBuilder();
+	
 	private String  numero;
 	private Date    dataEmissao;
 	private String  chave;
@@ -73,5 +75,27 @@ public class NotaFiscal {
 	
 	public void setProduto(Produto produto) {
 		this.produtos.add(produto);
+	}
+	
+	@Override
+	public String toString() {
+		
+		sb.append("Nota Fiscal: " + this.numero);
+		sb.append("\nData Emissão: " + this.dataEmissao);
+		sb.append("\nChave: " + this.chave);
+		sb.append("\nEmissor: " + this.emissor);
+		sb.append("\nCliente: " + this.cliente);
+		sb.append("\nProdutos: ");
+		this.toStringProd();
+		return sb.toString();
+	}
+	
+	public void toStringProd() {
+		Integer x = 1;
+		for(Produto prod : produtos) {
+			sb.append("\n\tProduto "+x+":");
+			sb.append("\n"+prod);
+			x++;
+		}
 	}
 }
