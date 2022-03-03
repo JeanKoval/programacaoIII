@@ -15,41 +15,47 @@ public class NotaFiscalBuilder implements INotaFiscalBuilder {
 	private List<Produto> listaProdutos;
 
 	@Override
-	public void setDataEmissao(Date dataEmissao) {
-		this.dataEmissao = dataEmissao;		
+	public NotaFiscalBuilder setDataEmissao(Date dataEmissao) {
+		this.dataEmissao = dataEmissao;
+		return this;		
 	}
 
 	@Override
-	public void setNumero(String numero) {
+	public NotaFiscalBuilder setNumero(String numero) {
 		this.numero = numero;
-		
+		return this;
 	}
 
 	@Override
-	public void setChave(String chave) {
+	public NotaFiscalBuilder setChave(String chave) {
 		this.chave = chave;
-		
+		return this;
 	}
 
 	@Override
-	public void setEmissor(Emissor emissor) {
+	public NotaFiscalBuilder setEmissor(Emissor emissor) {
 		this.emissor = emissor;
-		
+		return this;
 	}
 
 	@Override
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;		
+	public NotaFiscalBuilder setCliente(Cliente cliente) {
+		this.cliente = cliente;	
+		return this;
 	}
 
 	@Override
-	public void setListaProdutos(List<Produto> listaProdutos) {
+	public NotaFiscalBuilder setListaProdutos(List<Produto> listaProdutos) {
 		this.listaProdutos = listaProdutos;
-		
+		return this;
 	}
 	
 	public NotaFiscal gera() {
 		return new NotaFiscal(this.numero, this.dataEmissao, this.chave, this.emissor, this.cliente, this.listaProdutos);
+	}
+	
+	public static NotaFiscalBuilder builder() {
+		return new NotaFiscalBuilder();
 	}
 
 }
