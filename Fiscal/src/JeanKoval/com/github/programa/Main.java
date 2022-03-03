@@ -8,6 +8,7 @@ import java.util.List;
 import JeanKoval.com.github.classes.Cliente;
 import JeanKoval.com.github.classes.Emissor;
 import JeanKoval.com.github.classes.NotaFiscal;
+import JeanKoval.com.github.classes.NotaFiscalBuilder;
 import JeanKoval.com.github.classes.Produto;
 
 public class Main {
@@ -25,7 +26,15 @@ public class Main {
 		listaProdutos.add(prod2);
 		listaProdutos.add(prod3);
 		
-		NotaFiscal nota = new NotaFiscal("123456789", new Date(), "1234567891", emissor, cliente, listaProdutos);
+		NotaFiscalBuilder nfBuilder = new NotaFiscalBuilder();
+		
+		nfBuilder.setDataEmissao(new Date());
+		nfBuilder.setNumero("123456789");
+		nfBuilder.setChave("987654321");		
+		nfBuilder.setEmissor(emissor);
+		nfBuilder.setCliente(cliente);
+		nfBuilder.setListaProdutos(listaProdutos);
+		NotaFiscal nota = nfBuilder.gera();
 		
 		System.out.println(nota);
 	}
