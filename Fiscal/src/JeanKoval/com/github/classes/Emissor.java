@@ -3,9 +3,9 @@ package JeanKoval.com.github.classes;
 public class Emissor {
 
 	private String nome;
-	private String cnpj;
+	private CNPJ cnpj;
 	
-	public Emissor(String nome, String cnpj) {
+	public Emissor(String nome, CNPJ cnpj) {
 		this.nome = nome;
 		this.cnpj = cnpj;
 	}
@@ -18,11 +18,11 @@ public class Emissor {
 		this.nome = nome;
 	}
 
-	public String getCNPJ() {
+	public CNPJ getCNPJ() {
 		return cnpj;
 	}
 
-	public void setCNPJ(String cnpj) {
+	public void setCNPJ(CNPJ cnpj) {
 		this.cnpj = cnpj;
 	}
 	
