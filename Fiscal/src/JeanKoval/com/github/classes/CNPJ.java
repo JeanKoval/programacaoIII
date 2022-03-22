@@ -22,10 +22,10 @@ public class CNPJ implements Documento {
 	
 	@Override
 	public Boolean isValid() {
-		if(cnpj.length()!=14) {
-			System.out.print(new Exception("CNPJ Incorreto, deve contam 14 digitos!"));
-			return false;
-		}
+//		if(cnpj.length()!=14) {
+//			System.out.print(new Exception("CNPJ Incorreto, deve contam 14 digitos!"));
+//			return false;
+//		}
 		return true;
 	}
 	

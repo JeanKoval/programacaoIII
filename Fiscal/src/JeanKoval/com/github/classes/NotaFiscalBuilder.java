@@ -9,7 +9,7 @@ public class NotaFiscalBuilder implements INotaFiscalBuilder {
 	
 	private Date dataEmissao;
 	private String numero;
-	private String chave;
+	private ChaveNF chave;
 	private Emissor emissor;
 	private Cliente cliente;
 	private List<Produto> listaProdutos;
@@ -27,7 +27,7 @@ public class NotaFiscalBuilder implements INotaFiscalBuilder {
 	}
 
 	@Override
-	public NotaFiscalBuilder setChave(String chave) {
+	public NotaFiscalBuilder setChave(ChaveNF chave) {
 		this.chave = chave;
 		return this;
 	}

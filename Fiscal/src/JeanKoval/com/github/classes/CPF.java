@@ -22,10 +22,10 @@ public class CPF implements Documento {
 
 	@Override
 	public Boolean isValid() {
-		if(cpf.length() != 11) {
-			System.out.print(new Exception("CPF Incorreto, deve contem 11 digitos!"));
-			return false;
-		}
+//		if(cpf.length() != 11) {
+//			System.out.print(new Exception("CPF Incorreto, deve contem 11 digitos!"));
+//			return false;
+//		}
 		return true;
 	}
 	

@@ -1,5 +1,6 @@
 package JeanKoval.com.github.classes;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,21 +9,22 @@ public class NotaFiscal {
 	
 	public static StringBuilder sb = new StringBuilder();
 	
+	public final Integer TAMANHO_NUMERO_NOTA = 9;
 	private String  numero;
 	private Date    dataEmissao;
-	private String  chave;
+	private ChaveNF chave;
 	
 	private Emissor emissor;
 	private Cliente cliente;
 	private List<Produto> produtos = new ArrayList<>();
 	
-	public NotaFiscal(String numero, Date data, String chave, Emissor emissor, Cliente cliente, List<Produto> produtos) {
-		this.numero      = numero;
+	public NotaFiscal(String numero, Date data, ChaveNF chave, Emissor emissor, Cliente cliente, List<Produto> produtos) {
+		setNumero(numero);
+		setProdutos(produtos);
 		this.dataEmissao = data;
 		this.chave 	     = chave;
 		this.emissor     = emissor;
 		this.cliente     = cliente;
-		this.produtos    = produtos;
 	}
 
 	public String getNumero() {
@@ -30,7 +32,19 @@ public class NotaFiscal {
 	}
 
 	public void setNumero(String numero) {
-		this.numero = numero;
+		try {
+			this.numero = validaTamanhoNumero(numero);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private String validaTamanhoNumero(String numero) throws IOException {
+		if(numero.length() > TAMANHO_NUMERO_NOTA) {
+			throw new IOException("Numero da nota deve conter no maximo 9 digitos...");
+		}else {
+			return String.format("%09d", Integer.parseInt(numero));			
+		}
 	}
 
 	public Date getDataEmissao() {
@@ -41,11 +55,11 @@ public class NotaFiscal {
 		this.dataEmissao = data;
 	}
 
-	public String getChave() {
+	public ChaveNF getChave() {
 		return chave;
 	}
 
-	public void setChave(String chave) {
+	public void setChave(ChaveNF chave) {
 		this.chave = chave;
 	}
 
@@ -70,7 +84,11 @@ public class NotaFiscal {
 	}
 
 	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+		try {
+			this.produtos = new ValidaQuantProdutos(produtos).getListaProdutos();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void setProduto(Produto produto) {
