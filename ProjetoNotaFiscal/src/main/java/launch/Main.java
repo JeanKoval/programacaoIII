@@ -20,7 +20,7 @@ public class Main {
         tomcat.setPort(Integer.valueOf("9090"));
 
         StandardContext ctx = (StandardContext) tomcat.addWebapp("/", new File(webappDirLocation).getAbsolutePath());
-        System.out.println("configuração da aplicação no dir:  " + new File("./" + webappDirLocation).getAbsolutePath());
+        System.out.println("configuração da aplicação no dir:  " + new File(webappDirLocation).getAbsolutePath());
 
         // Declaração do WEB-INF
         File additionWebInfClasses = new File("target/classes");

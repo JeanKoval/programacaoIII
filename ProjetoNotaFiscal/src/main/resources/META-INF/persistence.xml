@@ -7,6 +7,13 @@
 <persistence-unit name="example-jpa">
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	<!-- register class autodiscorver -->
+	<class>classes.NotaFiscal</class>
+	<class>classes.Cliente</class>
+	<class>classes.Emissor</class>
+	<class>classes.Produto</class>
+	<class>classes.CPF</class>
+	<class>classes.CNPJ</class>
+	<class>classes.ChaveNF</class>
 	<properties>
 		<!-- JPA -->
 		<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
