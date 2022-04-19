@@ -1,6 +1,7 @@
 package classes;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,16 +17,19 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-
-import classes.*;
-
 @Entity
 @Table(name="notas_fiscais")
-public class NotaFiscal {
+public class NotaFiscal implements Serializable{
 	
-	public static StringBuilder sb = new StringBuilder();
-	public final Integer TAMANHO_NUMERO_NOTA = 9;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private static StringBuilder sb = new StringBuilder();
+	private Integer TAMANHO_NUMERO_NOTA;
+	
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

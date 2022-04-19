@@ -13,13 +13,13 @@ import javax.persistence.Table;
 @Table(name="chaves")
 public class ChaveNF {
 	
-	public final Integer TAMANHO_CHAVE = 44;
+	private Integer TAMANHO_CHAVE;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id; 
-	public String chave;
+	private String chave;
 	
 	public ChaveNF() {}
 	

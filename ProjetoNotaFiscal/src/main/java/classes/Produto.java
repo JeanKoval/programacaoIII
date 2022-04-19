@@ -24,7 +24,7 @@ public class Produto {
 	private Double     quantidade;
 	private BigDecimal valor;
 	
-	public final BigDecimal VALOR_MINIMO_PRECO = new BigDecimal("0.0");
+	private BigDecimal VALOR_MINIMO_PRECO;
 	
 	public Produto() {}
 	
